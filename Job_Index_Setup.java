@@ -98,27 +98,27 @@ public class Job_Index_Setup {
             // List jobs
             System.out.println("Listing jobs... ");
             ListJobsByPipelineRequest listJobsByPipelineRequest = new ListJobsByPipelineRequest()
-	    		  .withPipelineId(PIPELINE_ID);
+                  .withPipelineId(PIPELINE_ID);
             System.out.println(amazonElasticTranscoder.listJobsByPipeline(listJobsByPipelineRequest).toString());
             
             // Create index.html
             System.out.print("Creating index.html... ");
             File file = new File("index.html");
-			Writer writer = new OutputStreamWriter(new FileOutputStream(file));
-			writer.write("<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=windows-1252\">\n");
-			writer.write("<title>Elastic Transcoder Test</title>\n");
-			writer.write("</head>\n");
-			writer.write("<body>\n");
-			writer.write("<h1>Elastic Transcoder Test</h1>\n");
-			writer.write("<video width=\"1280\" height=\"720\" controls>\n");
-			writer.write(" <source src=\"" + OUTPUT_KEY + "\" type=\"video/mp4\">\n");
-			writer.write(" Your browser does not support HTML5 video.\n");
-			writer.write("</video>\n");
-			writer.write("</body></html>\n");
-			writer.close();
-			System.out.println("DONE!");
+            Writer writer = new OutputStreamWriter(new FileOutputStream(file));
+            writer.write("<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=windows-1252\">\n");
+            writer.write("<title>Elastic Transcoder Test</title>\n");
+            writer.write("</head>\n");
+            writer.write("<body>\n");
+            writer.write("<h1>Elastic Transcoder Test</h1>\n");
+            writer.write("<video width=\"1280\" height=\"720\" controls>\n");
+            writer.write(" <source src=\"" + OUTPUT_KEY + "\" type=\"video/mp4\">\n");
+            writer.write(" Your browser does not support HTML5 video.\n");
+            writer.write("</video>\n");
+            writer.write("</body></html>\n");
+            writer.close();
+            System.out.println("DONE!");
             
-			// Put index.html in output bucket
+            // Put index.html in output bucket
             System.out.print("Putting index.html in " + outputBucket + "... ");
             s3.putObject(new PutObjectRequest(outputBucket, "index.html", new File("index.html")));
             System.out.println("DONE!");
@@ -128,13 +128,13 @@ public class Job_Index_Setup {
             file = new File("error.html");
             writer = new OutputStreamWriter(new FileOutputStream(file));
             writer.write("<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=windows-1252\">\n");
-			writer.write("<title>Error</title>\n");
-			writer.write("</head>\n");
-			writer.write("<body>\n");
-			writer.write("<h1>Error!</h1>\n");
-			writer.write("<p>Click <a href=\"https://s3.amazonaws.com/" + outputBucket + "/index.html\">here</a> to go back to the main page.</p>\n");
-			writer.write("</body></html>\n");
-			writer.close();
+            writer.write("<title>Error</title>\n");
+            writer.write("</head>\n");
+            writer.write("<body>\n");
+            writer.write("<h1>Error!</h1>\n");
+            writer.write("<p>Click <a href=\"https://s3.amazonaws.com/" + outputBucket + "/index.html\">here</a> to go back to the main page.</p>\n");
+            writer.write("</body></html>\n");
+            writer.close();
             System.out.println("DONE!");
             
             // Put error.html in output bucket

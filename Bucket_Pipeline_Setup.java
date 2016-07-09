@@ -73,20 +73,20 @@ public class Bucket_Pipeline_Setup {
         String INPUT_KEY_TYPE = ".webm";
         
         try {
-        	// Create input bucket
+            // Create input bucket
             System.out.print("Creating input bucket " + inputBucket + "... ");
             Boolean flag = true;
             for (Bucket bucket : s3.listBuckets()) {
                 if (bucket.getName().equals(inputBucket)) {
-                	flag = false;
+                    flag = false;
                 }
             }
             if (flag) {
-            	s3.createBucket(inputBucket);
-            	System.out.println("DONE!");
+                s3.createBucket(inputBucket);
+                System.out.println("DONE!");
             }
             else {
-            	System.out.println("Input bucket already exists!");
+                System.out.println("Input bucket already exists!");
             }
             
             // Create output bucket
@@ -94,15 +94,15 @@ public class Bucket_Pipeline_Setup {
             flag = true;
             for (Bucket bucket : s3.listBuckets()) {
                 if (bucket.getName().equals(outputBucket)) {
-                	flag = false;
+                    flag = false;
                 }
             }
             if (flag) {
-            	s3.createBucket(outputBucket);
-            	System.out.println("DONE!");
+                s3.createBucket(outputBucket);
+                System.out.println("DONE!");
             }
             else {
-            	System.out.println("Output bucket already exists!");
+                System.out.println("Output bucket already exists!");
             }
 
             // List buckets
@@ -112,18 +112,18 @@ public class Bucket_Pipeline_Setup {
             }
             System.out.println();
             
-			// Upload video in input bucket
-			System.out.print("Putting video " + "\"" + INPUT_KEY + "\" in " + inputBucket + "... ");
-			s3.putObject(new PutObjectRequest(inputBucket, INPUT_KEY, new File(INPUT_KEY + INPUT_KEY_TYPE)));
-			System.out.println("DONE!");
+            // Upload video in input bucket
+            System.out.print("Putting video " + "\"" + INPUT_KEY + "\" in " + inputBucket + "... ");
+            s3.putObject(new PutObjectRequest(inputBucket, INPUT_KEY, new File(INPUT_KEY + INPUT_KEY_TYPE)));
+            System.out.println("DONE!");
             
             // Create pipeline
-			System.out.print("Creating pipeline " + pipelineName + "... ");
+            System.out.print("Creating pipeline " + pipelineName + "... ");
             CreatePipelineRequest createPipelineRequest = new CreatePipelineRequest()
-            		.withInputBucket(inputBucket)
-            		.withOutputBucket(outputBucket)
-            		.withName(pipelineName)
-            		.withRole(role);
+                    .withInputBucket(inputBucket)
+                    .withOutputBucket(outputBucket)
+                    .withName(pipelineName)
+                    .withRole(role);
             amazonElasticTranscoder.createPipeline(createPipelineRequest);
             System.out.println("DONE!");
 
