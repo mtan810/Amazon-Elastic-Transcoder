@@ -7,8 +7,8 @@ Host a website which includes a video that has been transcoded via Amazon Elasti
 Amazon Elastic Transcoder is a service used to transcode media files in the cloud. This is Amazon's solution for developers and businesses to effectively transcode media files from their source format into different versions that will playback on different devices such as smartphones, tablets and PCs. This project will detail the usage of this service by transcoding a video and hosting it on a website.
 
 ## Benefits
-Pros: elastically scalable, cost effective, support for many common output formats
-Cons: limit on number of pipelines, jobs, and presets, no comprehensive list of input formats
+* Pros: elastically scalable, cost effective, support for many common output formats
+* Cons: limit on number of pipelines, jobs, and presets, no comprehensive list of input formats
 
 ## Operating System
 Windows 7 and up
@@ -37,9 +37,9 @@ Amazon Elastic Transcoder, Amazon S3, Java 8, Eclipse
 Amazon Elastic Transcoder transcodes media files in the cloud. It is highly scalable, easy to use, and cost effective. There is good support for output formats but there is no comprehensive list of input formats. There is also a limit on the number of pipelines, jobs, and presets. Based on my experience, it is very programmatically accessible. The entire project is mostly done using the AWS SDK for Java. The documentation is very well written.
 
 ## References
-http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/introduction.html 
-http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/elastictranscoder/AmazonElasticTranscoderClient.html 
+* http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/introduction.html 
+* http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/elastictranscoder/AmazonElasticTranscoderClient.html 
 
 ## Links to YouTube videos
-Short Video: https://www.youtube.com/watch?v=zhseLHXw-Js 
-Long Video: https://www.youtube.com/watch?v=nex_VgGgAnY 
+* Short Video: https://www.youtube.com/watch?v=zhseLHXw-Js 
+* Long Video: https://www.youtube.com/watch?v=nex_VgGgAnY 
